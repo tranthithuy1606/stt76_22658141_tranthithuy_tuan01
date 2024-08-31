@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form đăng ký</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+    <form>
+
+        <label for="name">Name:</label> <br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="phone">Telephone Number:</label><br>
+        <input type="tel" id="phone" name="phone"><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="color">Favorite Color:</label><br>
+        <input type="color" id="color" name="color"><br><br>
+        <label for="birthdate">Date of Birth:</label><br>
+        <input type="text" id="birthdate" name="birthdate">
+        <script>
+            $(document).ready(function() {
+                $("#birthdate").datepicker();
+            });
+        </script><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
