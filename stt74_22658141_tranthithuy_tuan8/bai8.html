@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 8 - Trần Thị Thủy</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <style>
+        /* Styles for header background image */
+*{
+    padding: 0px;
+    margin: 0px auto;
+}
+.wapper{
+    width: 960px;
+}
+
+.row label {
+    font-weight: bold;
+    padding-right: 10px;
+}
+ul{
+    left: 100px;
+    background-color: aqua;
+}
+li a {
+    line-height: 40px;
+    margin-right: 20px;
+    color: blue;
+    float: left;
+}
+li{
+    list-style-type: none;
+}
+ul li a:hover{
+    background-color: rgb(207, 252, 194);
+}
+
+    </style>
+</head>
+<body>
+<div class="wapper">
+    <!-- Header with Background Image and Navigation -->
+    <header>
+            <img src="/boi.jpg" alt="Header Image" class="img-fluid w-100" style="width: 960px; margin: 20px;">
+             
+        <!-- Image for the header -->
+        
+    </header>
+  <nav>
+    <ul>
+            <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#paymentModal">Đăng ký</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Trợ giúp</a></li>
+    </ul>
+  </nav>
+    <!-- Table -->
+    <div class="container mt-2">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã học viên</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Tiền dịch vụ</th>
+                    <th>Tiền đồ dùng</th>
+                    <th>Tổng tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>123456789</td>
+                    <td>Trần Anh</td>
+                    <td>hongquan@iuh.edu.vn</td>
+                    <td>30000</td>
+                    <td>10000</td>
+                    <td>40000</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Additional input fields below the table -->
+        <div class="row mt-3 mb-5">
+            <div class="col-md-4">
+                <label>Mã sinh viên:___________</label>
+            </div>
+            <div class="col-md-4">
+                <label>Họ tên:___________</label>
+            </div>
+            <div class="col-md-4 ">
+                <label>Phòng thi:___________</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button to trigger the modal -->
+
+
+<!-- Payment Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="paymentModalLabel">Thông Tin Thanh Toán</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style=" position: relative;;left: 100px;"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="paymentForm">
+                        <div class="mb-3">
+                            <label for="studentId" class="form-label">Mã học viên</label>
+                            <input type="text" class="form-control" id="studentId" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="fullName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="service" class="form-label">Dịch vụ</label>
+                            <select class="form-select" id="service" required>
+                                <option value="" disabled selected>Chọn dịch vụ</option>
+                                <option value="Bơi" data-price="30000">Bơi</option>
+                                <option value="Gym" data-price="50000">Gym</option>
+                                <option value="Yoga" data-price="45000">Yoga</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Giá tiền:</label>
+                            <input type="text" class="form-control" id="price" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Đồ dùng</label>
+                            <div>
+                                <input type="checkbox" id="swimSuit" value="10000"> Áo quần bơi<br>
+                                <input type="checkbox" id="float" value="5000"> Phao<br>
+                                <input type="checkbox" id="goggles" value="7000"> Kính bơi
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="equipmentCost" class="form-label">Tiền đồ dùng:</label>
+                            <input type="text" class="form-control" id="equipmentCost" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="totalCost" class="form-label">Tổng tiền:</label>
+                            <input type="text" class="form-control" id="totalCost" readonly>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="validateForm()" style="width: 230px;">Thanh toán</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="width: 230px;">Hủy</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h5>Trang thanh toán</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- javascript -->
+<script>
+    // Function to validate student ID format
+    function validateStudentId(id) {
+        const regex = /^\d{2}-\d{7}$/;
+        return regex.test(id);
+    }
+
+    // Function to validate full name format (at least two words starting with uppercase)
+    function validateFullName(name) {
+        const regex = /^[A-Z][a-z]*\s[A-Z][a-z]*$/;
+        return regex.test(name);
+    }
+
+    // Function to validate email format
+    function validateEmail(email) {
+        return email.endsWith("@iuh.edu.vn");
+    }
+
+    // Calculate price based on selected service
+    document.getElementById("service").addEventListener("change", function() {
+        const selectedOption = this.options[this.selectedIndex];
+        document.getElementById("price").value = selectedOption.getAttribute("data-price");
+        calculateTotal();
+    });
+
+    // Calculate equipment cost based on selected items
+    const equipmentCheckboxes = document.querySelectorAll("#paymentForm input[type='checkbox']");
+    equipmentCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", calculateTotal);
+    });
+
+    // Calculate total cost
+    function calculateTotal() {
+        let serviceCost = parseFloat(document.getElementById("price").value) || 0;
+        let equipmentCost = Array.from(equipmentCheckboxes).reduce((total, checkbox) => {
+            return checkbox.checked ? total + parseFloat(checkbox.value) : total;
+        }, 0);
+
+        document.getElementById("equipmentCost").value = equipmentCost;
+        document.getElementById("totalCost").value = serviceCost + equipmentCost;
+    }
+
+    // Validate the form and update table on success
+    function validateForm() {
+        const studentId = document.getElementById("studentId").value;
+        const fullName = document.getElementById("fullName").value;
+        const email = document.getElementById("email").value;
+
+        if (!validateStudentId(studentId)) {
+            alert("Mã học viên không hợp lệ. Định dạng đúng: xx-yyyyyyy.");
+            return;
+        }
+
+        if (!validateFullName(fullName)) {
+            alert("Họ tên không hợp lệ. Họ tên phải chứa ít nhất hai từ và bắt đầu bằng chữ hoa.");
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            alert("Email không hợp lệ. Địa chỉ email phải có đuôi @iuh.edu.vn.");
+            return;
+        }
+
+        // If all validations pass, update the table
+        updateTable(studentId, fullName, email);
+    }
+
+    // Update the table with new data
+    function updateTable(id, name, email) {
+        const service = document.getElementById("service").value;
+        const serviceCost = document.getElementById("price").value;
+        const equipmentCost = document.getElementById("equipmentCost").value;
+        const totalCost = document.getElementById("totalCost").value;
+
+        const tableBody = document.querySelector("table tbody");
+        const newRow = `
+            <tr>
+                <td>${tableBody.rows.length + 1}</td>
+                <td>${id}</td>
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${serviceCost}</td>
+                <td>${equipmentCost}</td>
+                <td>${totalCost}</td>
+            </tr>
+        `;
+        tableBody.insertAdjacentHTML("beforeend", newRow);
+        document.getElementById("paymentForm").reset();
+    }
+</script>
+
+    <!-- Bootstrap JS -->
+     <script src="/bootstrap.min.js"></script>
+     <script src="/js/jquery-3.7.1.min.js"></script>
+</body>
+</html>
